@@ -144,7 +144,7 @@ function PageBlock({ pageIndex, pdfDoc, fields, values, onFieldChange, drawMode,
           ))}
         </PdfCanvasPage>
         <PageSizeWatcher onSize={setSize} width={900} pdfDoc={pdfDoc} pageNumber={pageIndex + 1} />
-        <div className="drawing-layer-wrap" style={{ position: 'absolute', inset: 0, width: size.width, height: size.height }}>
+        <div className="drawing-layer-wrap" style={{ position: 'absolute', inset: 0, width: size.width, height: size.height, pointerEvents: drawMode ? 'auto' : 'none' }}>
           <DrawingLayer
             width={size.width}
             height={size.height}
@@ -175,3 +175,4 @@ function PageSizeWatcher({ pdfDoc, pageNumber, width, onSize }) {
   }, [pdfDoc, pageNumber, width]);
   return null;
 }
+
